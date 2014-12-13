@@ -13,7 +13,7 @@
             },
             credits: {
                 text: 'github.com/LiveDataIsBeautiful',
-                href: 'https://github.com/KyleMit/LiveDataIsBeautiful/ClosestCapitals'
+                href: 'https://github.com/KyleMit/LiveDataIsBeautiful/tree/gh-pages/ClosestCapitals'
             },
             legend: {
                 enabled: false

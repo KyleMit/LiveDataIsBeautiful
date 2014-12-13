@@ -13,7 +13,7 @@
             },
             credits: {
                 text: 'github.com/LiveDataIsBeautiful',
-                href: 'https://github.com/KyleMit/LiveDataIsBeautiful/EVE'
+                href: 'https://github.com/KyleMit/LiveDataIsBeautiful/tree/gh-pages/EVE'
             },
             legend: {
                 enabled: false
