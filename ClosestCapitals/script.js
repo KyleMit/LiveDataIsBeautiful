@@ -2,63 +2,60 @@
     $(function () {
         $('#container').highcharts({
             chart: {
-                type: 'column'
+                type: 'bar'
             },
             title: {
-                text: 'EVE Online - Distrubution of Player Age (Dec 2014)'
+                text: '50 Closest Pairs Of World Capitals'
             },
             subtitle: {
-                text: 'Source: CCP Quant, Analytics - COPYRIGHT © 1997-2014',
+                text: 'Source: /u/darinhq',
                 align: 'right'
             },
             credits: {
                 text: 'github.com/LiveDataIsBeautiful',
-                href: 'https://github.com/KyleMit/LiveDataIsBeautiful/EVE'
+                href: 'https://github.com/KyleMit/LiveDataIsBeautiful/ClosestCapitals'
             },
             legend: {
                 enabled: false
             },
             xAxis: {
                 title: {
-                    text: 'Age'
+                    text: null
                 },
                 categories: data.categories,
                 labels: {
-                    step: 10
+                    enabled: false
                 }
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Density'
+                    text: 'Distance (Km)'
                 },
-                labels: {
-                    formatter: function() {
-                        return Math.round(this.value * 100) + '%';
-                    }
-                }
+                gridLineWidth: 0
             },
             tooltip: {
-                formatter: function() {
-                    return '<b style="color:' + this.series.color + ';">Age</b>: ' + this.x + '<br/>' +
-                           '<b style="color:' + this.series.color + ';">Density</b>: ' + (Math.round(this.y * 100 * 100) / 100) + '%';
-                },
+                headerFormat: '<span >{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.2f} Km</b></td></tr>',
+                footerFormat: '</table>',
                 useHTML: true
             },
             plotOptions: {
-                column: {
+                bar: {
                     dataLabels: {
                         enabled: true,
                         formatter: function() {
                             return this.x;
                         }
                     },
+                    colorByPoint: true,
                     pointPadding: 0.0,
                     borderWidth: 0
                 }
             },
             series: [{
-                name: 'Percent',
+                name: 'Distance',
                 data: data.series
 
             }]
