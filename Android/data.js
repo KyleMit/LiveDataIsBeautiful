@@ -19,7 +19,7 @@
                 }
             })
         .ToArray();
-    console.log(series);
+    
     return {
         series: series
     }
