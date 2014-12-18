@@ -22,7 +22,7 @@
             },
             colorAxis: {
                 min: 0,
-                max: 3000
+                max: 30000
             },
             series: [{
                 data: data,

@@ -1,4 +1,4 @@
-﻿var data = (function() {
+﻿var data = (function () {
     var url = "http://transparencydata.com/api/1.0/contributions.json";
     var recipient = "Patrick Leahy";
     var cycle = 2014;
@@ -6,17 +6,19 @@
     var debug = true;
 
 
-    var massageData = function(rawData) {
+    var massageData = function (rawData) {
         if (debug) console.log(rawData);
 
         var simplifiedData = rawData.map(function (item) {
             return {
-                amount: item.amount,
+                amount: parseInt(item.amount, 10),
                 contributor_name: item.contributor_name,
                 contributor_state: item.contributor_state,
                 date: item.date
             };
         });
+
+        if (debug) console.log(simplifiedData);
 
         var series = Enumerable.From(simplifiedData)
             .GroupBy("$.contributor_state", null,
@@ -24,9 +26,11 @@
                     return {
                         "hc-key": "us-" + key.toLowerCase(),
                         value: g.Sum("$.amount")
-                    }
+                    };
                 })
             .ToArray();
+
+        if (debug) console.log(series);
 
         loadChart(series);
     };
