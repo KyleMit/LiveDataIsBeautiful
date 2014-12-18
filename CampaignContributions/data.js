@@ -23,7 +23,7 @@
                 function (key, g) {
                     return {
                         "hc-key": "us-" + key.toLowerCase(),
-                        value: g.Max("$.amount")
+                        value: g.Sum("$.amount")
                     }
                 })
             .ToArray();
