@@ -6,7 +6,7 @@
 
     // add handlebars helper
     Handlebars.registerHelper('toTitleCase', function (str) {
-        return str.replace(/\w\S*/g, function(txt) {
+        return str.replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         });
     });
@@ -14,26 +14,27 @@
     // set defaults
     var $politician = $("#PoliticianName").val("Patrick Leahy");
     var $cycle = $("#Cycle").val(2014);
-  
 
-
-    $('#PoliticianName, #Cycle').on('change', function callData() {
+    $('#Submit').on('click', function callData() {
+        $(this).attr("disabled", "disabled"); //disable until complete
+        
         var name = $politician.val();
         var cycle = $cycle.val();
 
         if (cycle && name) {
             loadData(name, cycle);
         }
-    }).change();
 
+        return false;
+    }).click();
 
 
     // http://sunlightlabs.github.io/datacommons/entities.html#methods/search-by-name
-    var nameUrl = "http://transparencydata.org/api/1.0/entities.json" + 
-        "?apikey="   + apiKey +
-        "&type="     + "politician" +
+    var nameUrl = "http://transparencydata.org/api/1.0/entities.json" +
+        "?apikey=" + apiKey +
+        "&type=" + "politician" +
         "&callback=" + "?" +
-        "&search="   + "%QUERY";
+        "&search=" + "%QUERY";
 
     // constructs the suggestion engine
     var politicians = new Bloodhound({
@@ -102,10 +103,14 @@
                 var title = recipient + "- Campaign Contributions by State - " + cycle;
 
                 loadChart(series, title);
+
+
+                // re-enable submit until complete
+                $('#Submit').removeAttr("disabled"); 
             }
         });
     }
-    
+
 
 
 })();

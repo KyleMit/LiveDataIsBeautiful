@@ -32,13 +32,15 @@
     </style>
 </head>
 <body>
-    <div id="bloodhound">
+    <form id="bloodhound">
         <label for="PoliticianName">Politician:</label>
         <input id="PoliticianName" class="typeahead form-control" type="text" placeholder="Politician Name">
 
         <label for="Cycle">Cycle:</label>
-        <input id="Cycle" class="typeahead form-control" type="number" placeholder="Cycle">
-    </div>
+        <input id="Cycle" class="form-control" type="number" placeholder="Cycle">
+        
+        <input id="Submit" class="btn btn-primary" type="submit" value="Refresh">
+    </form>
     <div id="container"></div>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
