@@ -1,10 +1,10 @@
-﻿function loadChart(data) {
+﻿function loadChart(data, title) {
 
     $(function () {
 
         $('#container').highcharts("Map", {
             title: {
-                text: 'Leahy Campaign Contributions by State - 2014'
+                text: title
             },
             subtitle: {
                 text: 'Source: /u/livedataisbeautiful',

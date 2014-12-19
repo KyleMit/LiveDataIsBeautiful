@@ -2,23 +2,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
-    <title>Leahy Campaign Contributions by State - 2014</title>
+    <title>Political Campaign Contributions by State</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://kylemitofsky.com/libraries/libraries/typeahead.default.css" />
     <style>
         html, body {
             margin: 0;
             padding: 0;
         }
+
         #container {
             width: 100%;
-            height: 100%;
+            height: 90%;
+            top: 10%;
             position: absolute;
+        }
+
+        #bloodhound {
+            width: 100%;
+            height: 10%;
+            position: absolute;
+            text-align: center;
+        }
+        #Cycle {
+            display: inline-block;
+            width: 100px;
         }
     </style>
 </head>
 <body>
+    <div id="bloodhound">
+        <label for="PoliticianName">Politician:</label>
+        <input id="PoliticianName" class="typeahead form-control" type="text" placeholder="Politician Name">
+
+        <label for="Cycle">Cycle:</label>
+        <input id="Cycle" class="typeahead form-control" type="number" placeholder="Cycle">
+    </div>
     <div id="container"></div>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.min.js"></script>
     <script src="http://code.highcharts.com/maps/highmaps.js"></script>
     <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
